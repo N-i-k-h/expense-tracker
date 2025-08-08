@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker | Dark/Yellow Theme</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-money-bill-wave"></i>
+                <h1>Expense Tracker</h1>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun"></i>
+                <span>Light Mode</span>
+            </button>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div>Total Expenses</div>
+                <div class="stat-value">₹<span id="totalExpenses">0.00</span></div>
+            </div>
+            <div class="stat-card">
+                <div>This Month</div>
+                <div class="stat-value">₹<span id="monthlyExpenses">0.00</span></div>
+            </div>
+            <div class="stat-card">
+                <div>Categories</div>
+                <div class="stat-value"><span id="categoryCount">0</span></div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-plus-circle"></i> Add Expense</h2>
+                <form class="add-expense-form" id="expenseForm">
+                    <div class="form-group">
+                        <label for="amount">Amount (₹)</label>
+                        <input type="number" id="amount" placeholder="Enter amount" min="0" step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" required>
+                            <option value="">Select a category</option>
+                            <option value="food">Food & Dining</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="transport">Transportation</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="bills">Bills & Utilities</option>
+                            <option value="gym">Gym & Fitness</option>
+                            <option value="travel">Travel</option>
+                            <option value="health">Health & Medical</option>
+                            <option value="education">Education</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" placeholder="Enter description">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <button type="submit" class="btn">
+                        <i class="fas fa-plus"></i> Add Expense
+                    </button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-chart-pie"></i> Expense Dashboard</h2>
+                <div class="chart-container">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card history-container">
+                <h2 class="card-title"><i class="fas fa-history"></i> Expense History</h2>
+                <div class="table-responsive">
+                    <table id="expenseTable">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expenseList">
+                            <!-- Expenses will be added here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="empty-state" id="emptyState">
+                    <i class="fas fa-receipt"></i>
+                    <h3>No expenses recorded yet</h3>
+                    <p>Add your first expense to get started!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="calculator-icon" id="calcIcon">
+        <i class="fas fa-calculator"></i>
+    </div>
+
+    <div class="calculator-modal" id="calculator">
+        <div class="calc-display" id="calcDisplay">0</div>
+        <div class="calc-buttons">
+            <button class="calc-btn clear" data-value="C">C</button>
+            <button class="calc-btn operator" data-value="backspace"><i class="fas fa-backspace"></i></button>
+            <button class="calc-btn operator" data-value="%">%</button>
+            <button class="calc-btn operator" data-value="/">/</button>
+
+            <button class="calc-btn" data-value="7">7</button>
+            <button class="calc-btn" data-value="8">8</button>
+            <button class="calc-btn" data-value="9">9</button>
+            <button class="calc-btn operator" data-value="*">×</button>
+
+            <button class="calc-btn" data-value="4">4</button>
+            <button class="calc-btn" data-value="5">5</button>
+            <button class="calc-btn" data-value="6">6</button>
+            <button class="calc-btn operator" data-value="-">−</button>
+
+            <button class="calc-btn" data-value="1">1</button>
+            <button class="calc-btn" data-value="2">2</button>
+            <button class="calc-btn" data-value="3">3</button>
+            <button class="calc-btn operator" data-value="+">+</button>
+
+            <button class="calc-btn" data-value="0">0</button>
+            <button class="calc-btn" data-value=".">.</button>
+            <button class="calc-btn equals" data-value="=">=</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
