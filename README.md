@@ -12,9 +12,7 @@ Expense Tracker is a web-based application designed to help users manage their d
 - **Theme Toggle**: Switch between dark and light themes for better user experience.
 - **Built-in Calculator**: A handy calculator for quick financial calculations.
 
-## Demo
 
-You can see a live demo of the Expense Tracker [here](#) (replace with your live demo link if available).
 
 ## Getting Started
 
@@ -30,4 +28,5 @@ These instructions will get you a copy of the project up and running on your loc
 
    ```bash
    git clone https://github.com/N-i-k-h/expense-tracker.git
+
 
