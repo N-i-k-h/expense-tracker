@@ -2,7 +2,7 @@
 
 Expense Tracker is a web-based application designed to help users manage their daily expenses efficiently. Built with HTML, CSS, and JavaScript, this application allows users to add, categorize, and visualize their expenses through an intuitive interface.
 
-![Expense Tracker Screenshot](screenshot.png)
+
 
 ## Features
 
@@ -30,3 +30,4 @@ These instructions will get you a copy of the project up and running on your loc
 
    ```bash
    git clone https://github.com/N-i-k-h/expense-tracker.git
+
